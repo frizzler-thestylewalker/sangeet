@@ -10,6 +10,7 @@ let myProgressBar = document.getElementById("myProgressBar")
 let songInfo = document.getElementById("songInfo")
 let songItem = Array.from(document.getElementsByClassName("song-name"))
 let musicName =document.getElementsByClassName("musicName")
+let coverImg = document.getElementById("cover-img")
  
 let songs = [
     {songName: "Let me love you", filePath: "audio/1.mp3", coverPath: "covers/1.jpg"},
@@ -76,6 +77,7 @@ Array.from(document.getElementsByClassName("songItemPlay")).forEach((element)=>{
         e.target.classList.add("fa-pause")
         audioElement.src=`audio/${songIndex + 1}.mp3`
         songInfo.innerText = songs[songIndex].songName
+        coverImg.src = songs[songIndex].coverPath
         audioElement.currentTime = 0
         audioElement.play()
         masterPlay.classList.remove("fa-play")
@@ -92,6 +94,7 @@ document.getElementById("next").addEventListener('click', ()=>{
     }
     audioElement.src=`audio/${songIndex + 1}.mp3`
     songInfo.innerText = songs[songIndex].songName
+    coverImg.src = songs[songIndex].coverPath
     audioElement.currentTime = 0
     audioElement.play()
     masterPlay.classList.remove("fa-play")
@@ -105,6 +108,7 @@ document.getElementById("previous").addEventListener('click', ()=>{
     }
     audioElement.src=`audio/${songIndex + 1}.mp3`
     songInfo.innerText = songs[songIndex].songName
+    coverImg.src = songs[songIndex].coverPath
     audioElement.currentTime = 0
     audioElement.play()
     masterPlay.classList.remove("fa-play")
